@@ -12,13 +12,13 @@ class Book {
   }
 }
 
-const bookShelf = [new Book('Aaron is Great', 'Aaron Keegan')];
+// const bookShelf = [new Book('Aaron is Great', 'Aaron Keegan')];
 
 function addBook(book) {
   const createdBook = document.createElement('div');
   createdBook.classList.add('book');
-  const newBook =
-    `<span class="title">${book.title}</span>
+  const newBook = `
+      <span class="title">${book.title}</span>
       <br>
       <span class="author">${book.author}</span>
       <br>
@@ -34,5 +34,4 @@ addBook(new Book('blah', 'blah'));
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
   addBook(new Book(newTitle.value, newAuthor.value));
-  console.log('hi');
 });
