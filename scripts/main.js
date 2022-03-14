@@ -12,8 +12,6 @@ class Book {
   }
 }
 
-// const bookShelf = [new Book('Aaron is Great', 'Aaron Keegan')];
-
 function addBook(book) {
   const createdBook = document.createElement('div');
   createdBook.classList.add('book');
@@ -25,10 +23,8 @@ function addBook(book) {
       <button class="remove" type="button">remove</button>
       <hr>`;
   createdBook.innerHTML += newBook;
-  bookContainer.appendChild(createdBook);
+  bookContainer.prepend(createdBook);
 }
-
-addBook(new Book('blah', 'blah'));
 
 // Event Listeners & Logic
 addButton.addEventListener('click', (e) => {
