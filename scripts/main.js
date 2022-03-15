@@ -31,23 +31,23 @@ const shelf = [];
 // Objects
 class Book {
   title;
+  
   author;
 }
 
 class StrShelf {
-};
+}
 
 //delete once refactored
 class LocalStorage {
   shelf;
-  getItem () {
-    return this.shelf
+
+  getItem() {
+    return this.shelf;
   }
 }
 
 let bookshelf = new StrShelf();
-
-
 
 // function loadBooks() {
 //   const rebuiltBookShelf = localStorage.getItem('strBookShelf');
@@ -85,21 +85,21 @@ function clearFrontShelf() {
   // Clear html shelf (index.html)
 }
 
-function pushToStorage (obj){
-  let stringify = JSON.stringify(obj);
+function pushToStorage(obj) {
+  const stringify = JSON.stringify(obj);
   //change this line below to localStorage.setItem('shelf', stringify);
-  localStorage.setItem(`strShelf`, stringify);
+  localStorage.setItem('strShelf', stringify);
 }
 
 function updateShelf () {
   bookshelf = new StrShelf();
   let counter = 0;
-  for (let i = 0; i < shelf.length; i += 1) {
+  for(let i = 0; i < shelf.length; i += 1) {
     counter += 1;
     shelf[i].id = counter;
   }
   for (let i = 0; i < shelf.length; i += 1) {
-    let id = shelf[i].id;
+    const id = shelf[i].id;
     bookshelf[`${id}`] = shelf[i];
   }
   pushToStorage(bookshelf);
@@ -110,7 +110,7 @@ function newBook(title, author) {
   // to the localstorage.frontDesk
   // N: 1.1. give it an ID number
   bookshelf = new StrShelf();
-  let book = new Book();
+  const book = new Book();
   book.title = title;
   book.author = author;
   shelf.unshift(book);
@@ -138,7 +138,7 @@ function displayBook(bookId) {
 function displayShelf() {
   // Pulls displayBooks strings (html parts) into a div
   // pushes it to the index.html
-  // this function pushes an array of 
+  // this function pushes an array of
   // books in html to the index.html
 }
 
@@ -152,9 +152,7 @@ addButton.addEventListener('click', (e) => {
 //   const intermediate1 = JSON.stringify(book);
 //   strBookShelf.push(intermediate1);
 //   localStorage.setItem('strBookShelf', strBookShelf);
-
 //   bookShelf.push(book);
-  
 //   for (let i = 0; i < strBookShelf.length; i += 1) {
 //     const currentBook = JSON.parse(strBookShelf[i]);
 //     const createdBook = document.createElement('div');
@@ -171,5 +169,3 @@ addButton.addEventListener('click', (e) => {
 //     bookContainer.prepend(createdBook);
 //   }
 // }
-
-
