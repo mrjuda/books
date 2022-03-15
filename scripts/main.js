@@ -131,6 +131,7 @@ function addBook(book) {
     createdBook.innerHTML += newBook;
     bookContainer.prepend(createdBook);
   }
+}
 
 // Event Listeners & Logic
 
