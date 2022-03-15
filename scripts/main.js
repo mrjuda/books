@@ -70,7 +70,6 @@ function addBook(book) {
   // bookContainer.prepend(createdBook);
 }
 
-=======
 // const bookShelf = [new Book('Aaron is Great', 'Aaron Keegan')];
 
 function addBook(book) {
