@@ -22,7 +22,7 @@ if (!localStorage.strBookShelf) {
 function loadBooks() {
   const rebuiltBookShelf = localStorage.getItem('strBookShelf');
   alert(JSON.parse(rebuiltBookShelf));
-  for (let i = 0; i < rebuiltBookShelf.length; i+1) {
+  for (let i = 0; i < rebuiltBookShelf.length; i += 1) {
     const currentBook = JSON.parse(rebuiltBookShelf[i]);
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
@@ -42,13 +42,13 @@ function loadBooks() {
 loadBooks();
 
 function addBook(book) {
-  localStorage.clear(); 
+  localStorage.clear();
   const intermediate1 = JSON.stringify(book);
   strBookShelf.push(intermediate1);
   localStorage.setItem('strBookShelf', strBookShelf);
 
   bookShelf.push(book);
-  for (let i = 0; i < strBookShelf.length; i+1) {
+  for (let i = 0; i < strBookShelf.length; i += 1) {
     const currentBook = JSON.parse(strBookShelf[i]);
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
