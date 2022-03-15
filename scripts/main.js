@@ -1,14 +1,15 @@
 /*
- 0. Check curr.lclstrg: (if any stored books){ clear bookShelf > append curr.lclstrg > clear tmp.lclstrg }
-  0.1. If not, clear bookshelf, clear tmp.lclstrg
+ 0. Check curr.lclstrg:
+  0.1. (if any stored books){ clear bookShelf > append curr.lclstrg > clear tmp.lclstrg }
+  0.2. (else) {clear bookshelf, clear tmp.lclstrg}
  1. addBook > tmp.lclstrg
   1.1. append curr.lclstrg -> tmp.lclstrg's bottom
   1.2. clear curr.lclstrg > clear shelf
   1.3. copy tmp.lclstrg to curr.lclstrg > show it on bookshelf
   1.4. clear tmp.lclstrg
 2. removeBook > copy  to tmp.lclstrg
-  2.1. compare it to 
- 
+  2.1. compare it to
+
 */
 // Query Selectors
 const addButton = document.getElementById('add');
