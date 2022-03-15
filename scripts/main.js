@@ -1,16 +1,5 @@
-// 1 - > add a book
-// - pushes to an array
-// - Array builds the LocalStorage Object
-// - Paint the books on the page based on the order of the books in LocalStorage
-
-// 2 - Remove Book
-//   - remove from array
-//   -rebuild localstorage
-//    -repaint the whole screen
-
 // Query Selectors
 const addButton = document.getElementById('add');
-// const removeButton = document.querySelectorAll('removeButton');
 const newTitle = document.getElementById('newTitle');
 const newAuthor = document.getElementById('newAuthor');
 const frontShelf = document.getElementById('frontShelf');
@@ -47,30 +36,27 @@ function displayBook(title, author, id) {
       `;
 }
 
-//for loop addEventListener => query selector 1, 2,3 ,4 ,5 ,6
-
 function pullFromStorage() {
   const parsed = JSON.parse(localStorage.getItem('strShelf'));
   let counter = shelf.length;
   const preShelf = [];
   for (let i = 0; i < shelf.length; i += 1) {
     const parsedBook = parsed[`${counter}`];
-    const tempBook = displayBook(parsedBook.title, parsedBook.author, counter)
-    preShelf.unshift(tempBook);
+    const tempShelf = displayBook(parsedBook.title, parsedBook.author, counter)
+    preShelf.unshift(tempShelf);
     preShelf[i].id = counter;
     console.log(preShelf[i].id);
     counter -= 1;
   }
-  
+
   frontShelf.innerHTML = '';
-    
+  
   for (let i = 0; i < preShelf.length; i += 1) {
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
     createdBook.innerHTML = preShelf[i];
     createdBook.id = i + 1;
     frontShelf.appendChild(createdBook);
-    // push to array document.getElementByID(#line57);
   }
 }
 
@@ -96,15 +82,21 @@ function newBook(title, author) {
   shelf.unshift(book);
   updateShelf();
 }
+
 let removeButton = document.querySelectorAll('.removeButton');
 
 function removeBook(id) {
   bookshelf = new StrShelf();
+  
+  frontShelf.innerHTML = '';
+  
   for (let i = 1; i <= shelf.length; i += 1) {
     if (shelf[i - 1].id === parseInt(id, 10)) {
       shelf.splice(i - 1, 1);
       updateShelf();
     }
+    pullFromStorage();
+    setRemoveListeners();
   }
 }
 
@@ -114,11 +106,16 @@ addButton.addEventListener('click', (e) => {
   pullFromStorage();
   newTitle.value = '';
   newAuthor.value = '';
-  removeButton = document.querySelectorAll('.removeButton');
+  
+  setRemoveListeners();
+
+});
+
+function setRemoveListeners() {
+  removeButton = document.querySelectorAll('.removeButton'); 
   removeButton.forEach(button => {
     button.addEventListener('click', (e) => {
-      // let bookToBeRemoved = document.querySelector('#');
-      removeBook(e.target.parentElement.id);
+      removeBook(e.target.id);
     })
   })
-});
+}
