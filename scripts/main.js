@@ -25,42 +25,53 @@ const bookContainer = document.getElementById('book-container');
 const frontShelf = document.getElementById('frontShelf');
 const frontDesk = [];
 const shelf = [];
-const strBookShelf = [];
-const bookShelf = [];
+// const strBookShelf = [];
+// const bookShelf = [];
 
 // Objects
 class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
+  title;
+  author;
+}
+
+class StrShelf {
+};
+
+//delete once refactored
+class LocalStorage {
+  shelf;
+  getItem () {
+    return this.shelf
   }
 }
 
-if (!localStorage.strBookShelf) {
-  // alert('empty');
-}
+let bookshelf = new StrShelf();
 
-function loadBooks() {
-  const rebuiltBookShelf = localStorage.getItem('strBookShelf');
+
+
+// function loadBooks() {
+//   const rebuiltBookShelf = localStorage.getItem('strBookShelf');
   // alert(JSON.parse(rebuiltBookShelf));
-  for (let i = 0; i < rebuiltBookShelf.length; i += 1) {
-    const currentBook = JSON.parse(rebuiltBookShelf[i]);
-    const createdBook = document.createElement('div');
-    createdBook.classList.add('book');
-    const newBook = `
-      <span class="title">${currentBook.title}</span>
-      <br>
-      <span class="author">${currentBook.author}</span>
-      <br>
-      <button class="remove" type="button">remove</button>
-      <hr>
-      `;
-    createdBook.innerHTML += newBook;
-    bookContainer.prepend(createdBook);
-  }
-}
+//   for (let i = 0; i < rebuiltBookShelf.length; i += 1) {
+//     const currentBook = JSON.parse(rebuiltBookShelf[i]);
+//     const createdBook = document.createElement('div');
+//     createdBook.classList.add('book');
+//     const newBook = `
+//       <span class="title">${currentBook.title}</span>
+//       <br>
+//       <span class="author">${currentBook.author}</span>
+//       <br>
+//       <button class="remove" type="button">remove</button>
+//       <hr>
+//       `;
+//     createdBook.innerHTML += newBook;
+//     bookContainer.prepend(createdBook);
+//   }
+// }
 
-loadBooks();
+// loadBooks();
+
+// Event Listeners & Logic
 
 function clearFrontDesk() {
   // clear the slot that contains new added books from form
@@ -74,20 +85,46 @@ function clearFrontShelf() {
   // Clear html shelf (index.html)
 }
 
+function pushToStorage (obj){
+  let stringify = JSON.stringify(obj);
+  //change this line below to localStorage.setItem('shelf', stringify);
+  localStorage.setItem(`strShelf`, stringify);
+}
+
+function updateShelf () {
+  bookshelf = new StrShelf();
+  let counter = 0;
+  for (let i = 0; i < shelf.length; i += 1) {
+    counter += 1;
+    shelf[i].id = counter;
+  }
+  for (let i = 0; i < shelf.length; i += 1) {
+    let id = shelf[i].id;
+    bookshelf[`${id}`] = shelf[i];
+  }
+  pushToStorage(bookshelf);
+}
+
 function newBook(title, author) {
   // Push 'addBook' submission (title,author)
   // to the localstorage.frontDesk
   // N: 1.1. give it an ID number
+  bookshelf = new StrShelf();
+  let book = new Book();
+  book.title = title;
+  book.author = author;
+  shelf.unshift(book);
+  updateShelf();
 }
 
-function addNewBook(bookId) {
+// function addNewBook(bookId) {
   //    append localstorage.shelf to localstorage.frontDesk's bottom
   //     1.2. clearShelf() > clear localstorage.shelf (id,title,author)
   //     1.3. copy localstorage.frontDesk to localstorage.shelf
   //     1.4. clearFrontShelf() (html shelf)
   //     1.5. displayShelf()
   //     1.5. clearFrontDesk()
-}
+// }
 
 function displayBook(bookId) {
   // display ONE book only, by its ID or something else
@@ -105,34 +142,34 @@ function displayShelf() {
   // books in html to the index.html
 }
 
-function addBook(book) {
-  localStorage.clear();
-  const intermediate1 = JSON.stringify(book);
-  strBookShelf.push(intermediate1);
-  localStorage.setItem('strBookShelf', strBookShelf);
-
-  bookShelf.push(book);
-  
-  for (let i = 0; i < strBookShelf.length; i += 1) {
-    const currentBook = JSON.parse(strBookShelf[i]);
-    const createdBook = document.createElement('div');
-    createdBook.classList.add('book');
-    const newBook = `
-      <span class="title">${currentBook.title}</span>
-      <br>
-      <span class="author">${currentBook.author}</span>
-      <br>
-      <button class="remove" type="button">remove</button>
-      <hr>
-      `;
-    createdBook.innerHTML += newBook;
-    bookContainer.prepend(createdBook);
-  }
-}
-
-// Event Listeners & Logic
-
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
-  addBook(new Book(newTitle.value, newAuthor.value));
+  newBook(newTitle.value, newAuthor.value);
 });
+
+// function addBook(book) {
+//   localStorage.clear();
+//   const intermediate1 = JSON.stringify(book);
+//   strBookShelf.push(intermediate1);
+//   localStorage.setItem('strBookShelf', strBookShelf);
+
+//   bookShelf.push(book);
+  
+//   for (let i = 0; i < strBookShelf.length; i += 1) {
+//     const currentBook = JSON.parse(strBookShelf[i]);
+//     const createdBook = document.createElement('div');
+//     createdBook.classList.add('book');
+//     const newBook = `
+//       <span class="title">${currentBook.title}</span>
+//       <br>
+//       <span class="author">${currentBook.author}</span>
+//       <br>
+//       <button class="remove" type="button">remove</button>
+//       <hr>
+//       `;
+//     createdBook.innerHTML += newBook;
+//     bookContainer.prepend(createdBook);
+//   }
+// }
+
+
