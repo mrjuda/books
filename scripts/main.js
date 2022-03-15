@@ -63,7 +63,7 @@ function updateShelf() {
   }
   for (let i = 0; i < shelf.length; i += 1) {
     const id = shelf[i].id;
-    bookshelf['${id}'] = shelf[i];
+    bookshelf[`${id}`] = shelf[i];
   }
   pushToStorage(bookshelf);
 }
