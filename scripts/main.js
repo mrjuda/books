@@ -66,8 +66,9 @@ function updateShelf() {
     shelf[i].id = counter;
   }
   for (let i = 0; i < shelf.length; i += 1) {
-    const id = shelf[i].id;
-    bookshelf[`${id}`] = shelf[i];
+    // const id = shelf[i].id;
+    // bookshelf[`${id}`] = shelf[i];
+    bookshelf[`${shelf[i].id}`] = shelf[i];
   }
   pushToStorage(bookshelf);
 }
@@ -83,15 +84,6 @@ function newBook(title, author) {
 
 let removeButton = document.querySelectorAll('.removeButton');
 
-function setRemoveListeners() {
-  removeButton = document.querySelectorAll('.removeButton');
-  removeButton.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      removeBook(e.target.id);
-    });
-  });
-};
-
 function removeBook(id) {
   bookshelf = new StrShelf();
 
@@ -105,6 +97,15 @@ function removeBook(id) {
     pullFromStorage();
     setRemoveListeners();
   }
+}
+
+function setRemoveListeners() {
+  removeButton = document.querySelectorAll('.removeButton');
+  removeButton.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      removeBook(e.target.id);
+    });
+  });
 }
 
 addButton.addEventListener('click', (e) => {
