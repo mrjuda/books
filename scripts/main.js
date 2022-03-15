@@ -51,21 +51,25 @@ function displayBook(title, author, id) {
 
 function pullFromStorage() {
   const parsed = JSON.parse(localStorage.getItem('strShelf'));
-  let counter = 1;
+  let counter = shelf.length;
   const preShelf = [];
   for (let i = 0; i < shelf.length; i += 1) {
     const parsedBook = parsed[`${counter}`];
-    preShelf.unshift(displayBook(parsedBook.title, parsedBook.author, counter));
+    const tempBook = displayBook(parsedBook.title, parsedBook.author, counter)
+    preShelf.unshift(tempBook);
     preShelf[i].id = counter;
     console.log(preShelf[i].id);
-    counter += 1;
+    counter -= 1;
   }
-  const createdBook = document.createElement('div');
-  createdBook.classList.add('book');
+  
+  frontShelf.innerHTML = '';
+    
   for (let i = 0; i < preShelf.length; i += 1) {
+    const createdBook = document.createElement('div');
+    createdBook.classList.add('book');
     createdBook.innerHTML = preShelf[i];
     createdBook.id = i + 1;
-    frontShelf.prepend(createdBook);
+    frontShelf.appendChild(createdBook);
     // push to array document.getElementByID(#line57);
   }
 }
@@ -95,7 +99,6 @@ function newBook(title, author) {
 let removeButton = document.querySelectorAll('.removeButton');
 
 function removeBook(id) {
-  frontShelf.innerHTML = '';
   bookshelf = new StrShelf();
   for (let i = 1; i <= shelf.length; i += 1) {
     if (shelf[i - 1].id === parseInt(id, 10)) {
