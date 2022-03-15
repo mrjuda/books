@@ -26,16 +26,18 @@ function pushToStorage(obj) {
   localStorage.setItem('strShelf', stringify);
 }
 
-function displayBook(title, author) {
+function displayBook(title, author, id) {
   return `
       <span class="title">${title}</span>
       <br>
       <span class="author">${author}</span>
       <br>
-      <button class="removeButton" type="button">remove</button>
+      <button class="removeButton" id="${id}" type="button">remove</button>
       <hr>
       `;
 }
+
+//for loop addEventListener => query selector 1, 2,3 ,4 ,5 ,6
 
 function pullFromStorage() {
   const parsed = JSON.parse(localStorage.getItem('strShelf'));
@@ -44,7 +46,7 @@ function pullFromStorage() {
   for (let i = 0; i < shelf.length; i += 1) {
     const parsedBook = parsed[`${counter}`];
     counter += 1;
-    preShelf.unshift(displayBook(parsedBook.title, parsedBook.author));
+    preShelf.unshift(displayBook(parsedBook.title, parsedBook.author, counter));
   }
   const createdBook = document.createElement('div');
   createdBook.classList.add('book');
@@ -84,3 +86,15 @@ addButton.addEventListener('click', (e) => {
   newTitle.value = '';
   newAuthor.value = '';
 });
+
+
+
+function removeBook(id) {
+  bookshelf = new strShelf();
+  for (let i = 1; i <= shelf.length; i += 1) {
+    if (shelf[i - 1].id === parseInt(id, 10)) {
+      shelf.splice(i - 1, 1);
+      updateShelf();
+    }
+  }
+}
