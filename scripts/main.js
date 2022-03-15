@@ -87,10 +87,8 @@ addButton.addEventListener('click', (e) => {
   newAuthor.value = '';
 });
 
-
-
 function removeBook(id) {
-  bookshelf = new strShelf();
+  bookshelf = new StrShelf();
   for (let i = 1; i <= shelf.length; i += 1) {
     if (shelf[i - 1].id === parseInt(id, 10)) {
       shelf.splice(i - 1, 1);
