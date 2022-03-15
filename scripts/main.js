@@ -7,7 +7,6 @@ const bookContainer = document.getElementById('book-container');
 const strBookShelf = [];
 const bookShelf = [];
 
-
 // Objects
 class Book {
   constructor(title, author) {
@@ -16,15 +15,15 @@ class Book {
   }
 }
 
-if (!localStorage.strBookShelf){
+if (!localStorage.strBookShelf) {
   alert('empty');
 }
 
 function loadBooks() {
   const rebuiltBookShelf = localStorage.getItem('strBookShelf');
   alert(JSON.parse(rebuiltBookShelf));
-  for(i = 0; i < rebuiltBookShelf.length; i++){
-    let currentBook = JSON.parse(rebuiltBookShelf[i]);
+  for (let i = 0; i < rebuiltBookShelf.length; i+1) {
+    const currentBook = JSON.parse(rebuiltBookShelf[i]);
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
     const newBook = `
@@ -43,14 +42,14 @@ function loadBooks() {
 loadBooks();
 
 function addBook(book) {
-  localStorage.clear();  
+  localStorage.clear(); 
   const intermediate1 = JSON.stringify(book);
   strBookShelf.push(intermediate1);
   localStorage.setItem('strBookShelf', strBookShelf);
 
   bookShelf.push(book);
-  for(i = 0; i < strBookShelf.length; i++){
-    let currentBook = JSON.parse(strBookShelf[i]);
+  for (let i = 0; i < strBookShelf.length; i+1) {
+    const currentBook = JSON.parse(strBookShelf[i]);
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
     const newBook = `
