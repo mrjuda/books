@@ -3,10 +3,9 @@
   0.1. (if any stored books){ clear bookShelf > append localstorage.shelf >
      clear localstorage.frontDesk }
      >>  dispĺayBooks();
-  0.2. (else) {clear localstorage.shelf, 
+  0.2. (else) {clear localstorage.shelf,
     clear localstorage.frontDesk,
     clear webpage (clearFrontShelf)}
- 
   1. addBook > localstorage.frontDesk
   1.1. append localstorage.shelf -> localstorage.frontDesk's bottom
   1.2. clear localstorage.shelf > clear page
@@ -75,18 +74,16 @@ function clearFrontShelf() {
   // Clear html shelf (index.html)
 }
 
-function newBook(title,author) {
+function newBook(title, author) {
   // Push 'addBook' submission (title,author)
   // to the localstorage.frontDesk
   // N: 1.1. give it an ID number
-  
 }
 
 function addNewBook(bookId) {
   //    append localstorage.shelf to localstorage.frontDesk's bottom
   //     1.2. clearShelf() > clear localstorage.shelf (id,title,author)
   //     1.3. copy localstorage.frontDesk to localstorage.shelf
-  //     
   //     1.4. clearFrontShelf() (html shelf)
   //     1.5. displayShelf()
   //     1.5. clearFrontDesk()
@@ -105,7 +102,7 @@ function displayShelf() {
   // Pulls displayBooks strings (html parts) into a div
   // pushes it to the index.html
   // this function pushes an array of 
-  // books in html to the index,html
+  // books in html to the index.html
 }
 
 function addBook(book) {
