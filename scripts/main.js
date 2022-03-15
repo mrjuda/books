@@ -1,9 +1,8 @@
 // Query Selectors
-const addButton = document.getElementById('add');
+const addButton = document.querySelector('.add-btn');
 const newTitle = document.getElementById('newTitle');
 const newAuthor = document.getElementById('newAuthor');
 const frontShelf = document.getElementById('frontShelf');
-const frontDesk = [];
 const shelf = [];
 
 // Objects
@@ -42,15 +41,14 @@ function pullFromStorage() {
   const preShelf = [];
   for (let i = 0; i < shelf.length; i += 1) {
     const parsedBook = parsed[`${counter}`];
-    const tempShelf = displayBook(parsedBook.title, parsedBook.author, counter)
+    const tempShelf = displayBook(parsedBook.title, parsedBook.author, counter);
     preShelf.unshift(tempShelf);
     preShelf[i].id = counter;
-    console.log(preShelf[i].id);
     counter -= 1;
   }
 
   frontShelf.innerHTML = '';
-  
+
   for (let i = 0; i < preShelf.length; i += 1) {
     const createdBook = document.createElement('div');
     createdBook.classList.add('book');
@@ -85,11 +83,20 @@ function newBook(title, author) {
 
 let removeButton = document.querySelectorAll('.removeButton');
 
+function setRemoveListeners() {
+  removeButton = document.querySelectorAll('.removeButton');
+  removeButton.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      removeBook(e.target.id);
+    });
+  });
+};
+
 function removeBook(id) {
   bookshelf = new StrShelf();
-  
+
   frontShelf.innerHTML = '';
-  
+
   for (let i = 1; i <= shelf.length; i += 1) {
     if (shelf[i - 1].id === parseInt(id, 10)) {
       shelf.splice(i - 1, 1);
@@ -106,16 +113,5 @@ addButton.addEventListener('click', (e) => {
   pullFromStorage();
   newTitle.value = '';
   newAuthor.value = '';
-  
   setRemoveListeners();
-
 });
-
-function setRemoveListeners() {
-  removeButton = document.querySelectorAll('.removeButton'); 
-  removeButton.forEach(button => {
-    button.addEventListener('click', (e) => {
-      removeBook(e.target.id);
-    })
-  })
-}
