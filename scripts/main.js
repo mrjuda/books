@@ -72,19 +72,19 @@ function addBook(book) {
 
 // const bookShelf = [new Book('Aaron is Great', 'Aaron Keegan')];
 
-function addBook(book) {
-  const createdBook = document.createElement('div');
-  createdBook.classList.add('book');
-  const newBook = `
-      <span class="title">${book.title}</span>
-      <br>
-      <span class="author">${book.author}</span>
-      <br>
-      <button class="remove" type="button">remove</button>
-      <hr>`;
-  createdBook.innerHTML += newBook;
-  bookContainer.appendChild(createdBook);
-}
+// function addBook(book) {
+//   const createdBook = document.createElement('div');
+//   createdBook.classList.add('book');
+//   const newBook = `
+//       <span class="title">${book.title}</span>
+//       <br>
+//       <span class="author">${book.author}</span>
+//       <br>
+//       <button class="remove" type="button">remove</button>
+//       <hr>`;
+//   createdBook.innerHTML += newBook;
+//   bookContainer.appendChild(createdBook);
+// }
 
 addBook(new Book('blah', 'blah'));
 
