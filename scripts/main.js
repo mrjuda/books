@@ -1,4 +1,4 @@
-/* eslint-disable max-classes-per-file */ 
+/* eslint-disable max-classes-per-file */
 // Query Selectors
 const newTitle = document.getElementById('newTitle');
 const newAuthor = document.getElementById('newAuthor');
