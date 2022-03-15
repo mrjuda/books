@@ -1,9 +1,23 @@
+/*
+ 0. Check curr.lclstrg: (if any stored books){ clear bookShelf > append curr.lclstrg > clear tmp.lclstrg }
+  0.1. If not, clear bookshelf, clear tmp.lclstrg
+ 1. addBook > tmp.lclstrg
+  1.1. append curr.lclstrg -> tmp.lclstrg's bottom
+  1.2. clear curr.lclstrg > clear shelf
+  1.3. copy tmp.lclstrg to curr.lclstrg > show it on bookshelf
+  1.4. clear tmp.lclstrg
+2. removeBook > copy  to tmp.lclstrg
+  2.1. compare it to 
+ 
+*/
 // Query Selectors
 const addButton = document.getElementById('add');
 const newTitle = document.getElementById('newTitle');
 const newAuthor = document.getElementById('newAuthor');
 const bookContainer = document.getElementById('book-container');
 
+const frontDesk = [];
+const shelf = [];
 const strBookShelf = [];
 const bookShelf = [];
 
@@ -16,12 +30,12 @@ class Book {
 }
 
 if (!localStorage.strBookShelf) {
-  alert('empty');
+  // alert('empty');
 }
 
 function loadBooks() {
   const rebuiltBookShelf = localStorage.getItem('strBookShelf');
-  alert(JSON.parse(rebuiltBookShelf));
+  // alert(JSON.parse(rebuiltBookShelf));
   for (let i = 0; i < rebuiltBookShelf.length; i += 1) {
     const currentBook = JSON.parse(rebuiltBookShelf[i]);
     const createdBook = document.createElement('div');
@@ -85,9 +99,10 @@ function addBook(book) {
 //   bookContainer.appendChild(createdBook);
 // }
 
-addBook(new Book('blah', 'blah'));
+// addBook(new Book('blah', 'blah'));
 
 // Event Listeners & Logic
+
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
   addBook(new Book(newTitle.value, newAuthor.value));
