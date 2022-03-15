@@ -1,5 +1,4 @@
 // Query Selectors
-const addButton = document.querySelector('.add-btn');
 const newTitle = document.getElementById('newTitle');
 const newAuthor = document.getElementById('newAuthor');
 const frontShelf = document.getElementById('frontShelf');
@@ -66,8 +65,7 @@ function updateShelf() {
     shelf[i].id = counter;
   }
   for (let i = 0; i < shelf.length; i += 1) {
-    // const id = shelf[i].id;
-    // bookshelf[`${id}`] = shelf[i];
+    // GIVES THE BOOK OBJ AN ID #NUMBER
     bookshelf[`${shelf[i].id}`] = shelf[i];
   }
   pushToStorage(bookshelf);
@@ -84,6 +82,15 @@ function newBook(title, author) {
 
 let removeButton = document.querySelectorAll('.removeButton');
 
+function setRemoveListeners() {
+  removeButton = document.querySelectorAll('.removeButton');
+  removeButton.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      removeBook(e.target.id);
+    });
+  });
+}
+
 function removeBook(id) {
   bookshelf = new StrShelf();
 
@@ -99,14 +106,7 @@ function removeBook(id) {
   }
 }
 
-function setRemoveListeners() {
-  removeButton = document.querySelectorAll('.removeButton');
-  removeButton.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      removeBook(e.target.id);
-    });
-  });
-}
+const addButton = document.querySelector('.add-btn');
 
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
