@@ -73,6 +73,14 @@ form {
   gap: 0.4rem;
 }
 
+.removeButton,
+.add-btn {
+  border: solid 2px black;
+  background-color: #fff;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+}
+
 .add-btn {
   -ms-flex-item-align: end;
       align-self: flex-end;
@@ -105,13 +113,5 @@ input::-ms-input-placeholder {
 
 input::placeholder {
   color: #000;
-}
-
-.removeButton,
-.add-btn {
-  border: solid 2px black;
-  background-color: #fff;
-  margin: 0;
-  padding: 0.2rem 0.5rem;
 }
 /*# sourceMappingURL=styles.css.map */

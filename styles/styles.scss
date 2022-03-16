@@ -8,7 +8,6 @@
   background-color: #fff;
 }
 
-
 h1 {
   font-size: 1.8rem;
   margin: 0 0.4rem;
@@ -57,6 +56,14 @@ form {
   gap: 0.4rem;
 }
 
+.removeButton,
+.add-btn {
+  border: solid 2px black;
+  background-color: #fff;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+}
+
 .add-btn {
   align-self: flex-end;
 }
@@ -76,12 +83,4 @@ input {
 
 input::placeholder {
   color: #000;
-}
-
-.removeButton,
-.add-btn {
-  border: solid 2px black;
-  background-color: #fff;
-  margin: 0;
-  padding: 0.2rem 0.5rem;
 }
