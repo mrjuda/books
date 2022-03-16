@@ -4,10 +4,6 @@
   font-family: 'Courier New', Courier, monospace;
 }
 
-.book:nth-child(even){
-  background-color: #fff;
-}
-
 h1 {
   font-size: 1.8rem;
   margin: 0 0.4rem;
@@ -43,6 +39,10 @@ h2 {
   flex-direction: row;
   justify-content: space-between;
   padding: 0.4rem;
+}
+
+.book:nth-child(even) {
+  background-color: #fff;
 }
 
 form {
