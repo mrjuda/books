@@ -1,5 +1,20 @@
 /* eslint-disable max-classes-per-file */
 
+const homeBtn = getElementById('HomeBtn');
+const libraryBtn = getElementById('LibraryBtn');
+const newBtn = getElementById('NewBtn');
+const contactBtn = getElementById('#ContactBtn');
+
+const libraryPage = getElementById('Library');
+const newPage = getElementById('New');
+const contactPage = getElementById('#Contact');
+
+contactBtn.addEventListener('click', () => {
+  libraryPage.classList.add('.hidden');
+  newPage.classList.add('.hidden');
+  contactPage.classList.add('.hidden');
+});
+
 var dt = new Date();
 document.getElementById('date-time').innerHTML=dt;
 
