@@ -10,21 +10,23 @@
 </head>
 
 <body>
-  <div class="grid-container"> <!-- START OF GRID-CONTAINER -->
-
-    <nav class="nav-bar">
-      <div class="logo" id="HomeBtn">Awesome Books</div>
-      <ul class="menu" id="Menu">
-        <li class="menu-item" id="LibraryBtn"><a href="#">Library</a></li>
-        <li>|</li>
-        <li class="menu-item" id="NewBtn"><a href="#">Add new</a></li>
-        <li>|</li>
-        <li class="menu-item" id="ContactBtn"><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-    <div class="date-time">
-      <span id='date-time'></span>
-    </div>
+  <div class="grid-container">
+    <!-- START OF GRID-CONTAINER -->
+    <header>
+      <nav class="nav-bar">
+        <div class="logo" id="HomeBtn">Awesome Books</div>
+        <ul class="menu" id="Menu">
+          <li class="menu-item" id="LibraryBtn"><a href="#">Library</a></li>
+          <li>|</li>
+          <li class="menu-item" id="NewBtn"><a href="#">Add new</a></li>
+          <li>|</li>
+          <li class="menu-item" id="ContactBtn"><a href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="date-time">
+        <span id='date-time'></span>
+      </div>
+    </header>
     <section class="library" id="Library">
       <h1>All awesome books</h1>
       <div id="frontShelf" class="front-shelf">
@@ -33,7 +35,6 @@
         </div>
         <!-- here goes the dynamic content -->
       </div>
-      <div class="dash"> </div>
     </section>
 
     <section class="new" id="New">
@@ -52,8 +53,8 @@
     <section class="contact" id="Contact">
       <h2>Contact information</h2>
       <p>
-        Do you have any questions or you just want 
-        to say "hello"? 
+        Do you have any questions or you just want
+        to say "hello"?
         You can reach out to us!
       </p>
       <ul>
@@ -68,9 +69,10 @@
     </footer>
 
   </div> <!-- END OF GRID-CONTAINER -->
-  
 
-<script src="./scripts/main.js"></script>
+
+  <script src="./scripts/main.js"></script>
 
 </body>
+
 </html>

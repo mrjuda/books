@@ -9,12 +9,20 @@
   display: none;
 }
 
-ul {
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul,
+header {
   padding: 0;
   margin: 0;
 }
 
 .grid-container {
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -22,9 +30,9 @@ ul {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   margin: 0;
   padding: 0;
@@ -250,4 +258,3 @@ input::placeholder {
 .contact ul li {
   list-style-type: disc;
 }
-/*# sourceMappingURL=styles.css.map */
