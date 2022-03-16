@@ -5,30 +5,26 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="styles/main.css" />
-  <title>Document</title>
+  <link rel="stylesheet" href="styles/styles.css" />
+  <title>All awesome books</title>
 </head>
 
 <body>
   <section class="library">
-    <h1>Awesome Books</h1>
-    <div id="frontShelf">
+    <h1>All awesome books</h1>
+    <div id="frontShelf" class="front-shelf">
       <!-- here goes the dynamic content -->
     </div>
+    <div class="dash"> </div>
     <form>
+      <h2>Add a new book</h2>
       <label for="newTitle"></label>
       <input type="text" id="newTitle" name="newTitle" required maxlength="30" placeholder="Title" />
-      <br>
-      <br>
       <label for="newAuthor"></label>
       <input type="text" id="newAuthor" name="newAuthor" required maxlength="30" placeholder="Author" />
-      <br>
-      <br>
       <button id="add" type="button" class="add-btn">
         Add
       </button>
-      <br>
-      <br>
     </form>
     <script src="./scripts/main.js"></script>
   </section>
