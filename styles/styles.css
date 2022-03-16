@@ -1,1 +1,117 @@
-/* No CSS */
+* {
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.book:nth-child(even) {
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0.4rem;
+  padding: 0 0.4rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin: 0 0.2rem;
+  padding: 0 0.2rem;
+}
+
+.library {
+  margin: 0.4rem 0.4rem;
+  padding: 0.4rem 0.4rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.front-shelf {
+  width: 85%;
+  font-size: 0.8rem;
+  margin: 0.4rem 0.4rem;
+  padding: 0;
+  border: solid 2px black;
+}
+
+.book {
+  background-color: #ddd;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0.4rem;
+}
+
+form {
+  margin: 0.4rem 0.4rem;
+  padding: 0.4rem 0.4rem;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+  gap: 0.4rem;
+}
+
+.add-btn {
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+.dash {
+  width: 20%;
+  margin: 1.5rem;
+  border: solid #000 2px;
+}
+
+input {
+  border: solid 2px black;
+  background-color: #fff;
+  margin: 0;
+  padding: 0.3rem;
+}
+
+input::-webkit-input-placeholder {
+  color: #000;
+}
+
+input:-ms-input-placeholder {
+  color: #000;
+}
+
+input::-ms-input-placeholder {
+  color: #000;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+.removeButton,
+.add-btn {
+  border: solid 2px black;
+  background-color: #fff;
+  margin: 0;
+  padding: 0.2rem 0.5rem;
+}
+/*# sourceMappingURL=styles.css.map */

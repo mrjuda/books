@@ -31,12 +31,8 @@ class Library {
 
   static displayBook(title, author, id) {
     return `
-        <span class="title">${title}</span>
-        <br>
-        <span class="author">${author}</span>
-        <br>
-        <button class="removeButton" id="${id}" type="button">remove</button>
-        <hr>
+        <span class="title-author">"${title}" by ${author}</span>
+        <button class="removeButton" id="${id}" type="button">Remove</button>
         `;
   }
 
