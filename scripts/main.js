@@ -1,4 +1,4 @@
-/* eslint-disable max-classes-per-file */
+
 
 const libraryBtn = document.getElementById('LibraryBtn');
 const newBtn = document.getElementById('NewBtn');
