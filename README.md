@@ -8,7 +8,7 @@
 - JavaScript
 
 ## Live Demo
-- - Live version: [mrjuda.github.io/books](https://mrjuda.github.io/books/)
+- Live version: [mrjuda.github.io/books](https://mrjuda.github.io/books/)
 
 - Mobile version:
 > NOT YET
