@@ -1,17 +1,19 @@
-// style
+// styles.scss
+
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap');
 
 * {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Comic neue', cursive, 'Courier New', Courier, monospace;
 }
 
 h1 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 0 0.4rem;
   padding: 0 0.4rem;
 }
 
 h2 {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   margin: 0 0.2rem;
   padding: 0 0.2rem;
   // padding-bottom: 0;
@@ -27,10 +29,20 @@ h2 {
 
 .front-shelf {
   width: 85%;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-weight: bold;
   margin: 0.4rem 0.4rem;
   padding: 0;
-  border: solid 2px black;
+  border: solid 0.2rem black;
+}
+
+.pre-book {
+  background-color: #ddd;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  padding: 0.4rem;
 }
 
 .book {
@@ -38,6 +50,7 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   padding: 0.4rem;
 }
 
@@ -58,10 +71,14 @@ form {
 
 .removeButton,
 .add-btn {
-  border: solid 2px black;
+  border: solid 0.2rem black;
   background-color: #fff;
+  box-shadow: 2px 3px 1px rgba(0, 0, 0, 0.9);
   margin: 0;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .add-btn {
