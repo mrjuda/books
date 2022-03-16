@@ -1,6 +1,100 @@
 @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap");
 * {
   font-family: 'Comic neue', cursive, 'Courier New', Courier, monospace;
+  text-decoration: none;
+  list-style: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.display-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+ul,
+header {
+  padding: 0;
+  margin: 0;
+}
+
+.grid-container {
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-bar,
+.date-time,
+.library,
+.new,
+.contact,
+footer {
+  margin: 0.2rem 0.2rem;
+  padding: 0.2rem 0.2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-weight: bold;
+}
+
+.nav-bar,
+footer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.4rem 0.4rem;
+  padding: 0.4rem 1rem;
+  border: solid 0.2rem black;
+}
+
+.menu {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.menu .menu-item a {
+  color: #000;
+}
+
+.date-time {
+  font-size: 0.8rem;
+  text-align: end;
+  padding-right: 0.4rem;
+  margin-bottom: 1rem;
 }
 
 h1 {
@@ -16,8 +110,6 @@ h2 {
 }
 
 .library {
-  margin: 0.4rem 0.4rem;
-  padding: 0.4rem 0.4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -31,9 +123,8 @@ h2 {
 }
 
 .front-shelf {
-  width: 85%;
+  width: 100%;
   font-size: 1rem;
-  font-weight: bold;
   margin: 0.4rem 0.4rem;
   padding: 0;
   border: solid 0.2rem black;
@@ -77,9 +168,16 @@ h2 {
   background-color: #fff;
 }
 
+.new {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 form {
-  margin: 0.4rem 0.4rem;
-  padding: 0.4rem 0.4rem;
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -103,7 +201,6 @@ form {
   margin: 0;
   padding: 0.3rem 0.5rem;
   font-size: 1rem;
-  font-weight: bold;
   cursor: pointer;
 }
 
@@ -120,6 +217,7 @@ form {
 
 input {
   border: solid 2px black;
+  font-weight: bold;
   background-color: #fff;
   margin: 0;
   padding: 0.3rem;
@@ -139,5 +237,25 @@ input::-ms-input-placeholder {
 
 input::placeholder {
   color: #000;
+}
+
+.contact {
+  width: 80%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+}
+
+.contact ul li {
+  list-style-type: disc;
 }
 /*# sourceMappingURL=styles.css.map */
